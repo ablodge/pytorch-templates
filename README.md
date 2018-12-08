@@ -19,8 +19,7 @@ class Model(nn.Module):
        return F.relu(self.conv2(x))
 ```
 
-Important functions:
-`model.parameters()`
+Important functions: `model.parameters()`
 
 # Data
 Example dataset:
@@ -54,12 +53,9 @@ class Data(data.Dataset):
 - Input (N,...,in1_features),(N,...,in2_features)
 - Output (N,...,out_features)
 
-# Dropout
-`nn.Dropout(p=0.5)`
+# Dropout `nn.Dropout(p=0.5)`
 
-# RNN
-
-`nn.RNN()`
+# RNN `nn.RNN(input_size, hidden_size, num_layers, dropout=0.2, bidirectional=True)`
 - input_size – The number of expected features in the input x
 - hidden_size – The number of features in the hidden state h
 - num_layers – Number of recurrent layers. E.g., setting num_layers=2 would mean stacking two RNNs together to form a stacked RNN, with the second RNN taking in outputs of the first RNN and computing the final results. Default: 1
@@ -82,9 +78,7 @@ class Data(data.Dataset):
 ### Unpack directions
 `output.view(seq_len, batch, num_directions, hidden_size)`
 
-# LSTM
-
-`nn.LSTM`
+# LSTM `nn.LSTM(input_size, hidden_size, num_layers, dropout=0.2, bidirectional=True)`
 ### Input `input, (h_0, c_0)`
 
 - (seq_len, batch, input_size)
@@ -97,8 +91,7 @@ class Data(data.Dataset):
 - h_n (num_layers * num_directions, batch, hidden_size)
 - c_n (num_layers * num_directions, batch, hidden_size)
 
-# GRU
-`nn.GRU`
+# GRU `nn.GRU(input_size, hidden_size, num_layers, dropout=0.2, bidirectional=True)`
 - Same as RNN
 
 # Embeddings
