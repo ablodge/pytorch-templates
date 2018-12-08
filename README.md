@@ -3,7 +3,7 @@ My repository of templates for starting a pytorch project
 
 Some notes about pytorch:
 
-#Implement a `Module`
+# Implement a `Module`
 ```
 import torch.nn as nn
 import torch.nn.functional as F
@@ -22,7 +22,7 @@ class Model(nn.Module):
 Important functions:
 `model.parameters()`
 
-#Activations
+# Activations
 
 `nn.ReLU()`
 `nn.LeakyReLU(negative_slope=0.01)`
@@ -31,8 +31,7 @@ Important functions:
 
 `nn.AdaptiveLogSoftmaxWithLoss(in_features, n_classes, cutoffs, div_value=4.0, head_bias=False)`
 
-#Basic Layers
-
+# Basic Layers
 `nn.Linear(in_features, out_features)`
 Input (N,...,in_features)
 Output (N,...,out_features)
@@ -42,7 +41,7 @@ Output (N,...,out_features)
 `nn.Dropout(p=0.5)`
 `
 
-#Recurrent
+# Recurrent
 
 `nn.RNN()`
 - input_size – The number of expected features in the input x
@@ -54,28 +53,28 @@ Output (N,...,out_features)
 - dropout – If non-zero, introduces a Dropout layer on the outputs of each RNN layer except the last layer, with dropout probability equal to dropout. Default: 0
 - bidirectional – If True, becomes a bidirectional RNN. Default: False
 
-###Input `input, h_0`
+### Input `input, h_0`
 
 - (seq_len, batch, input_size)
 - h_0 of shape (num_layers * num_directions, batch, hidden_size)
 
-###Output `input, h_n`
+### Output `input, h_n`
 
 - (seq_len, batch, num_directions * hidden_size)
 - h_n (num_layers * num_directions, batch, hidden_size)
 
-###Unpack directions
+### Unpack directions
 `output.view(seq_len, batch, num_directions, hidden_size)`
 
 
 `nn.LSTM`
-###Input `input, (h_0, c_0)`
+### Input `input, (h_0, c_0)`
 
 - (seq_len, batch, input_size)
 - h_0 of shape (num_layers * num_directions, batch, hidden_size)
 - c_0 of shape (num_layers * num_directions, batch, hidden_size)
 
-###Output `output, (h_n, c_n)`
+### Output `output, (h_n, c_n)`
 
 - (seq_len, batch, num_directions * hidden_size)
 - h_n (num_layers * num_directions, batch, hidden_size)
@@ -84,7 +83,7 @@ Output (N,...,out_features)
 `nn.GRU`
 Same as RNN
 
-#Embeddings
+# Embeddings
 
 `nn.Embedding(num_embeddings, embedding_dim)`
 - num_embeddings (int) – size of the dictionary of embeddings
@@ -95,30 +94,30 @@ Same as RNN
 - scale_grad_by_freq (boolean, optional) – If given, this will scale gradients by the inverse of frequency of the words in the mini-batch. Default False.
 - sparse (bool, optional) – If True, gradient w.r.t. weight matrix will be a sparse tensor. See Notes for more details regarding sparse gradients.
 
-###Input: 
+### Input: 
 
 LongTensor of arbitrary shape containing the indices to extract
 
-###Output: 
+### Output: 
 
 (..., embedding_dim)
 
-###Methods
+### Methods
 
 `from_pretrained(embeddings, freeze=True, sparse=False)`
 
-#Losses
+# Losses
 
 `nn.CrossEntropyLoss()`
 `nn.BCELoss()`
 `nn.BCEWithLogitsLoss()`
 
 
-#Regularization
+# Regularization
 
 `nn.L1Loss()`
 
-#Optimization
+# Optimization
 
 `import torch.optim as optim`
 
@@ -135,7 +134,7 @@ for input, target in dataset:
     optimizer.step()
 ```
 
-#Data
+# Data
 
 `import torch.utils.data as data`
 `data.SequentialSampler(data_source)`
