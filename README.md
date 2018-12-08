@@ -129,7 +129,12 @@ for i,w in enumerate(vocab):
 emb = nn.Embedding.from_pretrained(embeddings, freeze=True, sparse=False)
 ```
 ### BERT
-
+```
+from pytorch_pretrained_bert import BertTokenizer, BertModel, BertForMaskedLM, BertForSequenceClassification, BertForTokenClassification
+tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual-cased')
+model = BertModel.from_pretrained('bert-base-multilingual-cased')
+...
+```
 ### Elmo
 
 
