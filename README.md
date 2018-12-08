@@ -49,12 +49,15 @@ Output (N,...,out_features)
 - batch_first – If True, then the input and output tensors are provided as (batch, seq, feature). Default: False
 - dropout – If non-zero, introduces a Dropout layer on the outputs of each RNN layer except the last layer, with dropout probability equal to dropout. Default: 0
 - bidirectional – If True, becomes a bidirectional RNN. Default: False
+
 ###Input `input, h_0`
 - (seq_len, batch, input_size)
 - h_0 of shape (num_layers * num_directions, batch, hidden_size)
+
 ###Output `input, h_n`
 - (seq_len, batch, num_directions * hidden_size)
 - h_n (num_layers * num_directions, batch, hidden_size)
+
 ###Unpack directions
 `output.view(seq_len, batch, num_directions, hidden_size)`
 
@@ -64,6 +67,7 @@ Output (N,...,out_features)
 - (seq_len, batch, input_size)
 - h_0 of shape (num_layers * num_directions, batch, hidden_size)
 - c_0 of shape (num_layers * num_directions, batch, hidden_size)
+
 ###Output `output, (h_n, c_n)`
 - (seq_len, batch, num_directions * hidden_size)
 - h_n (num_layers * num_directions, batch, hidden_size)
@@ -81,10 +85,13 @@ Same as RNN
 - norm_type (float, optional) – The p of the p-norm to compute for the max_norm option. Default 2.
 - scale_grad_by_freq (boolean, optional) – If given, this will scale gradients by the inverse of frequency of the words in the mini-batch. Default False.
 - sparse (bool, optional) – If True, gradient w.r.t. weight matrix will be a sparse tensor. See Notes for more details regarding sparse gradients.
+
 ###Input: 
 LongTensor of arbitrary shape containing the indices to extract
+
 ###Output: 
 (..., embedding_dim)
+
 ###Methods
 `from_pretrained(embeddings, freeze=True, sparse=False)`
 
@@ -98,7 +105,9 @@ LongTensor of arbitrary shape containing the indices to extract
 `nn.L1Loss()`
 
 #Optimization
+
 `import torch.optim as optim`
+
 `SGD`, `Adagrad`, `Adam`, `Adadelta`, etc.
 Example:
 ```
