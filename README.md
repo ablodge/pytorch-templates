@@ -22,13 +22,27 @@ class Model(nn.Module):
 Important functions:
 `model.parameters()`
 
-# Activations
+# Data
+Example dataset:
+```
+import torch.utils.data as data
 
-- `nn.ReLU()`
-- `nn.LeakyReLU(negative_slope=0.01)`
-- `nn.Sigmoid()`
-- `nn.Softmax()`
-- `nn.AdaptiveLogSoftmaxWithLoss(in_features, n_classes, cutoffs, div_value=4.0, head_bias=False)`
+class Data(data.Dataset):
+    def __init__(self, mydata):
+        self.data = mydata
+
+    def __getitem__(self, index):
+        return self.data[index]
+
+    def __len__(self):
+        return len(self.data)
+
+```
+### Samplers
+- `data.SequentialSampler(data_source)`
+- `data.RandomSampler(data_source, replacement=False, num_samples=None)`
+- `data.BatchSampler(sampler, batch_size, drop_last)`
+
 
 # Basic Layers
 
@@ -110,16 +124,21 @@ LongTensor of arbitrary shape containing the indices to extract
 
 `from_pretrained(embeddings, freeze=True, sparse=False)`
 
+
+# Activations
+
+- `nn.ReLU()`
+- `nn.LeakyReLU(negative_slope=0.01)`
+- `nn.Sigmoid()`
+- `nn.Softmax()`
+- `nn.AdaptiveLogSoftmaxWithLoss(in_features, n_classes, cutoffs, div_value=4.0, head_bias=False)`
+
+
 # Losses
 
 - `nn.CrossEntropyLoss()`
 - `nn.BCELoss()`
 - `nn.BCEWithLogitsLoss()`
-
-
-# Regularization
-
-`nn.L1Loss()`
 
 # Optimization
 
@@ -139,23 +158,6 @@ for input, target in dataset:
     optimizer.step()
 ```
 
-# Data
-`import torch.utils.data as data`
+# Regularization
 
-```
-class Data(data.Dataset):
-    def __init__(self, mydata):
-        self.data = mydata
-
-    def __getitem__(self, index):
-        return self.data[index]
-
-    def __len__(self):
-        return len(self.data)
-
-```
-
-- `data.SequentialSampler(data_source)`
-- `data.RandomSampler(data_source, replacement=False, num_samples=None)`
-- `data.BatchSampler(sampler, batch_size, drop_last)`
-
+`nn.L1Loss()`
