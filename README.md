@@ -109,7 +109,7 @@ class Data(data.Dataset):
 - scale_grad_by_freq (boolean, optional) – If given, this will scale gradients by the inverse of frequency of the words in the mini-batch. Default False.
 - sparse (bool, optional) – If True, gradient w.r.t. weight matrix will be a sparse tensor. See Notes for more details regarding sparse gradients.
 
-### Input: LongTensor of arbitrary shape containing the indices to extract
+### Input: _LongTensor of arbitrary shape containing the indices to extract_
 
 ### Output: `(..., embedding_dim)`
 
