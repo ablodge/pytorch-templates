@@ -53,7 +53,8 @@ class Data(data.Dataset):
 - Input (N,...,in1_features),(N,...,in2_features)
 - Output (N,...,out_features)
 
-# Dropout `nn.Dropout(p=0.5)`
+# Dropout 
+`nn.Dropout(p=0.5)`
 
 # RNN 
 `nn.RNN(input_size, hidden_size, num_layers, dropout=0.2, bidirectional=True)`
