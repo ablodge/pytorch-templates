@@ -24,25 +24,23 @@ Important functions:
 
 # Activations
 
-`nn.ReLU()`
-`nn.LeakyReLU(negative_slope=0.01)`
-`nn.Sigmoid()`
-`nn.Softmax()`
-
-`nn.AdaptiveLogSoftmaxWithLoss(in_features, n_classes, cutoffs, div_value=4.0, head_bias=False)`
+- `nn.ReLU()`
+- `nn.LeakyReLU(negative_slope=0.01)`
+- `nn.Sigmoid()`
+- `nn.Softmax()`
+- `nn.AdaptiveLogSoftmaxWithLoss(in_features, n_classes, cutoffs, div_value=4.0, head_bias=False)`
 
 # Basic Layers
 `nn.Linear(in_features, out_features)`
-Input (N,...,in_features)
-Output (N,...,out_features)
+- Input (N,...,in_features)
+- Output (N,...,out_features)
 `nn.Bilinear(in1_features, in2_features, out_features)`
-Input (N,...,in1_features),(N,...,in2_features)
-Output (N,...,out_features)
+- Input (N,...,in1_features),(N,...,in2_features)
+- Output (N,...,out_features)
 `nn.Dropout(p=0.5)`
-`
 
 # Recurrent
-
+## RNN
 `nn.RNN()`
 - input_size – The number of expected features in the input x
 - hidden_size – The number of features in the hidden state h
@@ -66,7 +64,7 @@ Output (N,...,out_features)
 ### Unpack directions
 `output.view(seq_len, batch, num_directions, hidden_size)`
 
-
+## LSTM
 `nn.LSTM`
 ### Input `input, (h_0, c_0)`
 
@@ -80,8 +78,9 @@ Output (N,...,out_features)
 - h_n (num_layers * num_directions, batch, hidden_size)
 - c_n (num_layers * num_directions, batch, hidden_size)
 
+## GRU
 `nn.GRU`
-Same as RNN
+- Same as RNN
 
 # Embeddings
 
@@ -108,9 +107,9 @@ LongTensor of arbitrary shape containing the indices to extract
 
 # Losses
 
-`nn.CrossEntropyLoss()`
-`nn.BCELoss()`
-`nn.BCEWithLogitsLoss()`
+- `nn.CrossEntropyLoss()`
+- `nn.BCELoss()`
+- `nn.BCEWithLogitsLoss()`
 
 
 # Regularization
@@ -122,6 +121,7 @@ LongTensor of arbitrary shape containing the indices to extract
 `import torch.optim as optim`
 
 `SGD`, `Adagrad`, `Adam`, `Adadelta`, etc.
+
 Example:
 ```
 optimizer = optim.SGD(model.parameters(), lr = 0.01, momentum=0.9)
@@ -135,9 +135,9 @@ for input, target in dataset:
 ```
 
 # Data
-
 `import torch.utils.data as data`
-`data.SequentialSampler(data_source)`
-`data.RandomSampler(data_source, replacement=False, num_samples=None)`
-`data.BatchSampler(sampler, batch_size, drop_last)`
+
+- `data.SequentialSampler(data_source)`
+- `data.RandomSampler(data_source, replacement=False, num_samples=None)`
+- `data.BatchSampler(sampler, batch_size, drop_last)`
 
