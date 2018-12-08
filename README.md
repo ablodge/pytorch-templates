@@ -44,7 +44,7 @@ class Data(data.Dataset):
 - `data.BatchSampler(sampler, batch_size, drop_last)`
 
 
-# Basic Layers
+# Linear Layers
 
 `nn.Linear(in_features, out_features)`
 - Input (N,...,in_features)
@@ -54,10 +54,10 @@ class Data(data.Dataset):
 - Input (N,...,in1_features),(N,...,in2_features)
 - Output (N,...,out_features)
 
+# Dropout
 `nn.Dropout(p=0.5)`
 
-# Recurrent
-## RNN
+# RNN
 
 `nn.RNN()`
 - input_size – The number of expected features in the input x
@@ -82,7 +82,7 @@ class Data(data.Dataset):
 ### Unpack directions
 `output.view(seq_len, batch, num_directions, hidden_size)`
 
-## LSTM
+# LSTM
 
 `nn.LSTM`
 ### Input `input, (h_0, c_0)`
@@ -97,7 +97,7 @@ class Data(data.Dataset):
 - h_n (num_layers * num_directions, batch, hidden_size)
 - c_n (num_layers * num_directions, batch, hidden_size)
 
-## GRU
+# GRU
 `nn.GRU`
 - Same as RNN
 
