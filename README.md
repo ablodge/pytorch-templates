@@ -23,13 +23,16 @@ Important functions:
 `model.parameters()`
 
 #Activations
+
 `nn.ReLU()`
 `nn.LeakyReLU(negative_slope=0.01)`
 `nn.Sigmoid()`
 `nn.Softmax()`
+
 `nn.AdaptiveLogSoftmaxWithLoss(in_features, n_classes, cutoffs, div_value=4.0, head_bias=False)`
 
 #Basic Layers
+
 `nn.Linear(in_features, out_features)`
 Input (N,...,in_features)
 Output (N,...,out_features)
@@ -40,6 +43,7 @@ Output (N,...,out_features)
 `
 
 #Recurrent
+
 `nn.RNN()`
 - input_size – The number of expected features in the input x
 - hidden_size – The number of features in the hidden state h
@@ -51,10 +55,12 @@ Output (N,...,out_features)
 - bidirectional – If True, becomes a bidirectional RNN. Default: False
 
 ###Input `input, h_0`
+
 - (seq_len, batch, input_size)
 - h_0 of shape (num_layers * num_directions, batch, hidden_size)
 
 ###Output `input, h_n`
+
 - (seq_len, batch, num_directions * hidden_size)
 - h_n (num_layers * num_directions, batch, hidden_size)
 
@@ -64,11 +70,13 @@ Output (N,...,out_features)
 
 `nn.LSTM`
 ###Input `input, (h_0, c_0)`
+
 - (seq_len, batch, input_size)
 - h_0 of shape (num_layers * num_directions, batch, hidden_size)
 - c_0 of shape (num_layers * num_directions, batch, hidden_size)
 
 ###Output `output, (h_n, c_n)`
+
 - (seq_len, batch, num_directions * hidden_size)
 - h_n (num_layers * num_directions, batch, hidden_size)
 - c_n (num_layers * num_directions, batch, hidden_size)
@@ -77,6 +85,7 @@ Output (N,...,out_features)
 Same as RNN
 
 #Embeddings
+
 `nn.Embedding(num_embeddings, embedding_dim)`
 - num_embeddings (int) – size of the dictionary of embeddings
 - embedding_dim (int) – the size of each embedding vector
@@ -87,21 +96,26 @@ Same as RNN
 - sparse (bool, optional) – If True, gradient w.r.t. weight matrix will be a sparse tensor. See Notes for more details regarding sparse gradients.
 
 ###Input: 
+
 LongTensor of arbitrary shape containing the indices to extract
 
 ###Output: 
+
 (..., embedding_dim)
 
 ###Methods
+
 `from_pretrained(embeddings, freeze=True, sparse=False)`
 
 #Losses
+
 `nn.CrossEntropyLoss()`
 `nn.BCELoss()`
 `nn.BCEWithLogitsLoss()`
 
 
 #Regularization
+
 `nn.L1Loss()`
 
 #Optimization
@@ -122,6 +136,7 @@ for input, target in dataset:
 ```
 
 #Data
+
 `import torch.utils.data as data`
 `data.SequentialSampler(data_source)`
 `data.RandomSampler(data_source, replacement=False, num_samples=None)`
