@@ -113,7 +113,7 @@ class Data(data.Dataset):
 
 ### Output: `(..., embedding_dim)`
 
-### Methods: `from_pretrained(embeddings, freeze=True, sparse=False)`
+Methods: `from_pretrained(embeddings, freeze=True, sparse=False)`
 
 
 # Activations
