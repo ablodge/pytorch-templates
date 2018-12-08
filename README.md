@@ -142,6 +142,19 @@ for input, target in dataset:
 # Data
 `import torch.utils.data as data`
 
+```
+class Data(data.Dataset):
+    def __init__(self, mydata):
+        self.data = mydata
+
+    def __getitem__(self, index):
+        return self.data[index]
+
+    def __len__(self):
+        return len(self.data)
+
+```
+
 - `data.SequentialSampler(data_source)`
 - `data.RandomSampler(data_source, replacement=False, num_samples=None)`
 - `data.BatchSampler(sampler, batch_size, drop_last)`
