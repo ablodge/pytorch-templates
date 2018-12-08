@@ -38,7 +38,7 @@ class Data(data.Dataset):
         return len(self.data)
 
 ```
-### Samplers
+### Getting Samples
 - `data.SequentialSampler(data_source)`
 - `data.RandomSampler(data_source, replacement=False, num_samples=None)`
 - `data.BatchSampler(sampler, batch_size, drop_last)`
