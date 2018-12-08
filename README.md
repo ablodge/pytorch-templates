@@ -46,12 +46,12 @@ class Data(data.Dataset):
 # Linear Layers
 
 `nn.Linear(in_features, out_features)`
-- Input (N,...,in_features)
-- Output (N,...,out_features)
+- Input `(N,...,in_features)`
+- Output `(N,...,out_features)`
 
 `nn.Bilinear(in1_features, in2_features, out_features)`
-- Input (N,...,in1_features),(N,...,in2_features)
-- Output (N,...,out_features)
+- Input `(N,...,in1_features), (N,...,in2_features)`
+- Output `(N,...,out_features)`
 
 # Dropout 
 `nn.Dropout(p=0.5)`
@@ -69,13 +69,13 @@ class Data(data.Dataset):
 
 ### Input `input, h_0`
 
-- (seq_len, batch, input_size)
-- h_0 of shape (num_layers * num_directions, batch, hidden_size)
+- `(seq_len, batch, input_size)`
+- h_0 `(num_layers * num_directions, batch, hidden_size)`
 
 ### Output `input, h_n`
 
-- (seq_len, batch, num_directions * hidden_size)
-- h_n (num_layers * num_directions, batch, hidden_size)
+- `(seq_len, batch, num_directions * hidden_size)`
+- h_n `(num_layers * num_directions, batch, hidden_size)`
 
 ### Unpack directions
 `output.view(seq_len, batch, num_directions, hidden_size)`
@@ -85,14 +85,14 @@ class Data(data.Dataset):
 ### Input `input, (h_0, c_0)`
 
 - (seq_len, batch, input_size)
-- h_0 of shape (num_layers * num_directions, batch, hidden_size)
-- c_0 of shape (num_layers * num_directions, batch, hidden_size)
+- h_0 of shape `(num_layers * num_directions, batch, hidden_size)`
+- c_0 of shape `(num_layers * num_directions, batch, hidden_size)`
 
 ### Output `output, (h_n, c_n)`
 
 - (seq_len, batch, num_directions * hidden_size)
-- h_n (num_layers * num_directions, batch, hidden_size)
-- c_n (num_layers * num_directions, batch, hidden_size)
+- h_n `(num_layers * num_directions, batch, hidden_size)`
+- c_n `(num_layers * num_directions, batch, hidden_size)`
 
 # GRU 
 `nn.GRU(input_size, hidden_size, num_layers, dropout=0.2, bidirectional=True)`
@@ -109,17 +109,11 @@ class Data(data.Dataset):
 - scale_grad_by_freq (boolean, optional) – If given, this will scale gradients by the inverse of frequency of the words in the mini-batch. Default False.
 - sparse (bool, optional) – If True, gradient w.r.t. weight matrix will be a sparse tensor. See Notes for more details regarding sparse gradients.
 
-### Input: 
+### Input: LongTensor of arbitrary shape containing the indices to extract
 
-LongTensor of arbitrary shape containing the indices to extract
+### Output: `(..., embedding_dim)`
 
-### Output: 
-
-(..., embedding_dim)
-
-### Methods
-
-`from_pretrained(embeddings, freeze=True, sparse=False)`
+### Methods: `from_pretrained(embeddings, freeze=True, sparse=False)`
 
 
 # Activations
