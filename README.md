@@ -116,6 +116,22 @@ class Data(data.Dataset):
 ### Methods:
 `from_pretrained(embeddings, freeze=True, sparse=False)`
 
+### GloVe
+```
+import torch.nn as nn
+from torchtext.vocab import GloVe
+glove = GloVe(name=['42B', '840B', 'twitter.27B', or '6B'], dim=300)
+print('Loaded {} words'.format(len(glove.itos)))
+embeddings = []
+for i,w in enumerate(vocab):
+    if w in glove.stoi:
+        embeddings.append(glove[w])
+emb = nn.Embedding.from_pretrained(embeddings, freeze=True, sparse=False)
+```
+### BERT
+
+### Elmo
+
 
 # Activations
 
