@@ -31,16 +31,20 @@ Important functions:
 - `nn.AdaptiveLogSoftmaxWithLoss(in_features, n_classes, cutoffs, div_value=4.0, head_bias=False)`
 
 # Basic Layers
+
 `nn.Linear(in_features, out_features)`
 - Input (N,...,in_features)
 - Output (N,...,out_features)
+
 `nn.Bilinear(in1_features, in2_features, out_features)`
 - Input (N,...,in1_features),(N,...,in2_features)
 - Output (N,...,out_features)
+
 `nn.Dropout(p=0.5)`
 
 # Recurrent
 ## RNN
+
 `nn.RNN()`
 - input_size – The number of expected features in the input x
 - hidden_size – The number of features in the hidden state h
@@ -65,6 +69,7 @@ Important functions:
 `output.view(seq_len, batch, num_directions, hidden_size)`
 
 ## LSTM
+
 `nn.LSTM`
 ### Input `input, (h_0, c_0)`
 
